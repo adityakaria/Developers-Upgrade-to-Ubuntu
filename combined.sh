@@ -2,14 +2,15 @@
 
 #main update of Ubuntu
 #Check of existing system version pending...
+echo 'APT::Get::Assume-Yes;' | sudo tee -a /etc/apt/apt.conf.d/00Do-not-ask #assumes yes for yes/no questions
 echo "Welcome to UNIX Update"
 echo "Your system will be updated to Ubuntu 18.04, along with a developers upgrade!"
 echo "Yo will be guided by onscreen instructions..."
 echo "please enter your admin (sudo) password: "
-sudo apt-get update
+sudo apt-get -y update
 # {sudo password}
-sudo apt-get upgrade
-sudo apt-get dist-upgrade
+sudo apt-get -y upgrade
+sudo apt-get -y dist-upgrade
 sudo do-release-upgrade
 # {Enter}
 # {y}
@@ -48,12 +49,12 @@ sudo apt install curl
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-sudo apt-get install apt-transport-https
-sudo apt-get update
-sudo apt-get install code
+sudo apt-get -y install apt-transport-https
+sudo apt-get -y update
+sudo apt-get -y install code
 
 #Gmail:
-sudo apt-get install msmtp-mta
+sudo apt-get -y install msmtp-mta
 touch ~/.msmtprc
 echo "enter your gmail address"
 read add
@@ -150,4 +151,3 @@ bash Anaconda3-5.2.0-Linux-x86_64.sh
 # {yes/no for installation of VS Code}
 source ~/.bashrc
 # //conda info (to verify installation)
-
