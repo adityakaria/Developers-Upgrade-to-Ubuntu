@@ -78,7 +78,7 @@ do
             sudo apt install python3-pip -y
             #which pip3	#creates a sym link of pip for pip3
             #ln -s /usr/bin/pip3 /usr/bin/pip
-            pip3 install --upgrade pip3
+            #pip3 install --upgrade pip3
             ;;
 
         3)
