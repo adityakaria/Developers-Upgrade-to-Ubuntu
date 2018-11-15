@@ -64,20 +64,20 @@ cat f1msm.txt > ~/.msmtprc
 sed -i "s/<pass>/$pass/1" ~/.msmtprc
 sed -i "s/<mail.com>/$add/g" ~/.msmtprc
 chmod 600 ~/.msmtprc
-sudo apt-get install mailutils
+sudo apt-get -y install mailutils
 sudo apt install yum
 sudo yum install mailx
 sudo dpkg-reconfigure postfix
 touch ~/.mailrc
 echo 'set sendmail="/usr/bin/msmtp"
 set message-sendmail-extra-arguments="-a gmail"' > ~/.mailrc
-echo "done with the gmail set up :))"
+echo "done with the gmail set up :))"[]
 echo -e 'to send the mail ,use the command \n mail -s "subject" "attachments " "sender@gmail.com" '
 
 #google-chrome:
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i ./google-chrome*.deb
-sudo apt-get install -f
+sudo apt-get -y install -f
 
 #pandas
 pip install pandas --user
@@ -91,8 +91,8 @@ sudo apt install atom
 sudo apt install rhino
 
 # tkinter:
-sudo apt-get update
-sudo apt-get install python3-tk
+sudo apt-get -y update
+sudo apt-get -y install python3-tk
 
 # java: 
 java -version
@@ -151,3 +151,11 @@ bash Anaconda3-5.2.0-Linux-x86_64.sh
 # {yes/no for installation of VS Code}
 source ~/.bashrc
 # //conda info (to verify installation)
+
+# Sublime-text
+sudo apt-get -y update
+sudo apt-get -y install sublime-text
+
+#slack
+sudo apt install snapd
+sudo snap install slack --classic
