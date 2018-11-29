@@ -6,6 +6,7 @@
 echo "Welcome to UNIX Developer Setup"
 echo "Enter 1 if you want to update to Ubuntu 18.04 LTS version"
 echo "Enter 2 if you want to install packages and softwares used in development"
+echo "Enter 3 if you want to change the theme"
 read n
 if [[ $n == 1 ]]
 then
@@ -29,6 +30,12 @@ then
         # (System restart required){y}
     fi
 fi
+
+if [[ $n == 3 ]]
+then
+    bash look.sh
+fi
+
 
 #installing utilities...
 if [[ $n == 2 ]]
@@ -54,6 +61,7 @@ do
     echo "14.Anaconda"
     echo "15.Sublime Text"
     echo "16.Slack"
+    echo "17.Any other package?"
     echo "0. To Exit Setup Wizard"
     read i
     case $i in
@@ -150,8 +158,6 @@ do
             # (1)- OpenJDK 11 is located at /usr/lib/jvm/java-11-openjdk-amd64/bin/java.
             # (2)- OpenJDK 8 is located at /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java.
             # (3)- Oracle Java 8 is located at /usr/lib/jvm/java-8-oracle/jre/bin/java.
-            javapath="/usr/lib/jvm/java-11-openjdk-amd64/bin/java"
-            echo JAVA_HOME="$javapath" >> /etc/environment
             source /etc/environment
             ;;
 
@@ -217,30 +223,13 @@ do
             sudo apt install snapd
             sudo snap install slack --classic
             ;;
+
+        17)
+            bash pip.sh
+            ;;
         
         *) echo "Invalid choice. Please enter a valid choice."
             ;;
     esac
 done 
 fi
-
-# #Gmail:
-# sudo apt-get -y install msmtp-mta
-# touch ~/.msmtprc
-# echo "enter your gmail address"
-# read add
-# echo " enter your password"
-# read pass
-# cat f1msm.txt > ~/.msmtprc
-# sed -i "s/<pass>/$pass/1" ~/.msmtprc
-# sed -i "s/<mail.com>/$add/g" ~/.msmtprc
-# chmod 600 ~/.msmtprc
-# sudo apt-get -y install mailutils
-# sudo apt install yum
-# sudo yum install mailx
-# sudo dpkg-reconfigure postfix
-# touch ~/.mailrc
-# echo 'set sendmail="/usr/bin/msmtp"
-# set message-sendmail-extra-arguments="-a gmail"' > ~/.mailrc
-# echo "done with the gmail set up :))"[]
-# echo -e 'to send the mail ,use the command \n mail -s "subject" "attachments " "sender@gmail.com" '
