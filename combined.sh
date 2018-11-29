@@ -31,7 +31,6 @@ then
     fi
 fi
 
-
 if [[ $n == 3 ]]
 then
     bash look.sh
